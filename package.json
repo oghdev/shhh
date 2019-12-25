@@ -1,0 +1,21 @@
+{
+  "name": "shhh",
+  "version": "0.1.0",
+  "description": "A command line tool for securely storing secrets on S3",
+  "main": "index.js",
+  "bin": {
+    "shhh": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dominic Porteous <dominic@dombox.xyz>",
+  "license": "GNU GPLv3",
+  "dependencies": {
+    "@emartech/easy-crypto": "^3.1.5",
+    "aws-sdk": "^2.596.0",
+    "dotenv": "^8.2.0",
+    "get-stdin": "^7.0.0",
+    "yargs": "^15.0.2"
+  }
+}
