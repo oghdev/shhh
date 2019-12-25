@@ -35,8 +35,8 @@ const encrypt = async (argv) => {
     secretAccessKey
   })
 
-  const key = argv.key
-  const value = argv.value
+  const key = argv.key.trim()
+  const value = argv.value.trim()
 
   const encrypted = await client.encrypt(key, value)
 
@@ -73,55 +73,64 @@ yargs
   .command(
     'encrypt <key> [value]',
     'Encrypts input value and stores in s3',
-    {
-      'bucket-name': {
+    (yargs) => (
+      yargs.option('bucket-name', {
         type: 'string',
         description: 'Bucket name to store the secrets'
-      },
-      'encryption-key': {
+      })
+      .option('encryption-key', {
         type: 'string',
         description: '32 bit key used to encrypt/decrypt secrets'
-      },
-      'endpoint': {
+      })
+      .option('endpoint', {
         type: 'string',
         description: 'host:port for S3 endpoint (default s3.amazonaws.com, alternatives such as s3-eu-west-1.amazonaws.com)'
-      },
-      'access-key-id': {
+      })
+      .option('access-key-id', {
         type: 'string',
         description: 'AWS Access Key (default AWS_ACCESS_KEY_ID)'
-      },
-      'secret-access-key': {
+      })
+      .option('secret-access-key', {
         type: 'string',
         description: 'AWS Secret Key (default AWS_SECRET_ACCESS_KEY)'
-      }
-    },
+      })
+      .positional('key', {
+        type: 'string'
+      })
+      .positional('value', {
+        type: 'string'
+      })
+    ),
     encrypt
   )
   .command(
     'decrypt <key>',
     'Decrypts given secret from s3',
-    {
-      'bucket-name': {
+    (yargs) => (
+      yargs.option('bucket-name', {
         type: 'string',
-        description: 'Bucket name to retrieve the secrets'
-      },
-      'encryption-key': {
+        description: 'Bucket name to store the secrets'
+      })
+      .option('encryption-key', {
         type: 'string',
         description: '32 bit key used to encrypt/decrypt secrets'
-      },
-      'endpoint': {
+      })
+      .option('endpoint', {
         type: 'string',
         description: 'host:port for S3 endpoint (default s3.amazonaws.com, alternatives such as s3-eu-west-1.amazonaws.com)'
-      },
-      'access-key-id': {
+      })
+      .option('access-key-id', {
         type: 'string',
         description: 'AWS Access Key (default AWS_ACCESS_KEY_ID)'
-      },
-      'secret-access-key': {
+      })
+      .option('secret-access-key', {
         type: 'string',
         description: 'AWS Secret Key (default AWS_SECRET_ACCESS_KEY)'
-      }
-    },
+      })
+      .positional('key', {
+        type: 'string'
+      })
+    ),
     decrypt
   )
   .group([ 'help', 'version' ], 'Global Options:')

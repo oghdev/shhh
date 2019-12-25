@@ -1,6 +1,6 @@
 {
   "name": "shhh",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A command line tool for securely storing secrets on S3",
   "main": "index.js",
   "bin": {
