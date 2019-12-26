@@ -23,7 +23,7 @@ email: ''
 description: 'A command line tool for securely storing secrets on S3. shhh encrypts plain text passwords/secrets using the Advanced Encryption Standard (aes-256) and a master password/key.'
 
 baseurl: '' # the subpath of your site, e.g. /blog
-url: '' # the base hostname & protocol for your site, e.g. http://example.com
+url: '//oghdev.github.io' # the base hostname & protocol for your site, e.g. http://example.com
 
 twitter_username:
 github_username:
