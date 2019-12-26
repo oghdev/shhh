@@ -1,10 +1,16 @@
+---
+layout: home
+title: 'Home'
+nav_order: 0
+---
+
 # 🙉 shhh
 
 A command line tool for securely storing secrets on S3. **shhh** encrypts plain text passwords/secrets using the [Advanced Encryption Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard#Security) (aes-256) and a master password/key.
 
 ## Installation
 
-#### Requirements
+**Requirements**
 
 *Node JS (>=10)*
 
@@ -14,11 +20,11 @@ A command line tool for securely storing secrets on S3. **shhh** encrypts plain 
 
 An example with npm:
 
-```
+```bash
 npm install -g oghdev/shhh
 ```
 
-#### Version pinning
+**Version pinning**
 
 If you want to install and pin a specific version of **shhh**, you can do so by referencing a specific [release](https://github.com/oghdev/shhh/releases) tarball.
 
@@ -45,7 +51,7 @@ shhh decrypt <key>
 If you install **shhh** with the global flag `npm i -g oghdev/shhh` flag, it will add the shhh executable to your shell path. This will allow you to use it as below:
 
 ```bash
-$ shhh encrypt secret-name "foo" \
+shhh encrypt secret-name "foo" \
   --bucket-name bar \
   --access-key-id "..." \
   --secret-access-key "..." \
@@ -57,7 +63,7 @@ This will encrypt the value "foo" and uploads the encrypted secret to the "secre
 This will make also the plain text secret value visible in the shell history and in a process list (e.g. ps) so we also support piping in the value via *stdin*:
 
 ```bash
-$ cat supersecretfile | shhh encrypt secret-name - \
+cat supersecretfile | shhh encrypt secret-name - \
   --bucket-name bar \
   --access-key-id "..." \
   --secret-access-key "..." \
@@ -67,7 +73,7 @@ $ cat supersecretfile | shhh encrypt secret-name - \
 To decrypt the above secret, which was stored under the "secret-name" key in the "bar" bucket - we use the following command:
 
 ```bash
-$ shhh decrypt secret-name \
+shhh decrypt secret-name \
   --bucket-name bar \
   --access-key-id "..." \
   --secret-access-key "..." \
@@ -77,7 +83,7 @@ $ shhh decrypt secret-name \
 This will output the plain text value to stdout after decrypting. To avoid this showing up in shell history or on the terminal, its recommended to pipe the output into a file (and set permissions to be readable by only your user) or to save the output directly to a shell variable:
 
 ```bash
-$ shhh decrypt secret-name \
+shhh decrypt secret-name \
   --bucket-name bar \
   --access-key-id "..." \
   --secret-access-key "..." \
@@ -141,7 +147,7 @@ Any defined command line parameter will overwrite any set environment variable o
 
 ### API Reference
 
-Please see [REFERENCE.md](REFERENCE.md)
+Please see [REFERENCE.md](/reference/)
 
 ## FAQ
 
@@ -165,4 +171,4 @@ Currently **shhh** should be considered beta software.
 
 ## Contributing
 
-Please see [CONTRIBUTING.md](CONTRIBUTING.md)
+Please see [CONTRIBUTING.md](/contributing/)
