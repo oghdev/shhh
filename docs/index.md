@@ -147,7 +147,7 @@ Any defined command line parameter will overwrite any set environment variable o
 
 ### API Reference
 
-Please see [REFERENCE.md](/reference/)
+Please see [REFERENCE.md](reference/)
 
 ## FAQ
 
@@ -171,4 +171,4 @@ Currently **shhh** should be considered beta software.
 
 ## Contributing
 
-Please see [CONTRIBUTING.md](/contributing/)
+Please see [CONTRIBUTING.md](contributing/)
